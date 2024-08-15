@@ -1,0 +1,18 @@
+<div class="container w-50">
+  <h1 class="mb-5">Add New Category</h1>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingcate" [(ngModel)]="name" name="name" placeholder="Category Name">
+        <label for="floatingcate">Category Name</label>
+      </div>
+     
+      <button class="btn btn-primary mt-3 w-25" (click)="AddCategory()">Add Category</button>
+    </div>
+    <!--@if(show == true){
+    <div class="alert alert-success mt-3" role="alert">
+      <h4>Succssed</h4>
+    </div>
+    }-->
+  </div>
+</div>

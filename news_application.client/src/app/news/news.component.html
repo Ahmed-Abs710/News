@@ -1,0 +1,77 @@
+<nav class="navbar bg-body-tertiary fixed-top">
+  <div class="container-fluid">
+    <h1 class="navbar-brand-lg">News</h1>
+  
+    <div class="d-flex mt-3 " role="search">
+      <input class="form-control me-2" type="search" [(ngModel)]="key" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" (click)="Search()"  type="submit">Search</button>
+    </div>
+
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">News Categories</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active text-lg" aria-current="page" routerLink="Login">Login</a>
+          </li>
+          @for(c of cate; track c.id){
+          <li class="nav-item">
+            <button class="nav-link active text-center"  (click)="GetArtByCat(c.id)" aria-current="page" >{{c.name}}</button>
+          </li>
+          }
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container " style="margin-top:80px;">
+  <div class="row justify-content-center">
+    <div class="col-12 w-75">
+      <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          @for(l of lastArts; track l.id){
+          <div class="carousel-item active" data-bs-interval="5000">
+            <img [src]="l.picPath" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5><a  [routerLink]="['/Article']" [queryParams]="{id:l.id}">{{l.title}}</a></h5>
+            </div>
+          </div>
+     
+          }
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-5">
+    <div class="col-12 w-50">
+      @for(c of Arts; track c.id){
+      <div class="card mt-2 mb-2" >
+        <img [src]="c.picPath" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text"><a [routerLink]="['/Article']" [queryParams]="{id:c.id}">{{c.title}}</a></p>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

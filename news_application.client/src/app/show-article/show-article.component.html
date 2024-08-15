@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <div class="row justfy-content-center">
+    <div class="col-12 text-center display-4">
+      {{art.title}}
+    </div>
+    <div class="row justfy-content-end mt-2">
+      {{art.publishDate}}
+    </div>
+    <div class="row justfy-content-center mt-3" [innerHTML]="art.content">
+
+    </div>
+    @if(userId){
+    <div class="row justfy-content-center mt-5">
+      <label for="exampleFormControlTextarea1" class="form-label text-lg">Comment</label>
+      <textarea class="form-control" [(ngModel)]="comment.Content" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <button class="btn btn-primary w-50 text-center mt-1" (click)="AddComment()">Comment</button>
+    </div>
+    }@else{
+      <h1>You Are Not Log In </h1>
+    }
+
+    <div class="row  text-left mt-5">
+      @if(comm != null){
+      @for(c of comm; track c.id){
+      <div class="card mt-2">
+        <div class="card-header">
+          {{c.username}}
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{c.content}}</p>
+        </div>
+      </div>
+      }
+      }@else{
+      <h1>Thir Is No Comment For This News Until Now</h1>
+      }
+
+    </div>
+  </div>
+</div>

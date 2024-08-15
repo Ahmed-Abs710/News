@@ -1,0 +1,25 @@
+<div class="container w-50">
+  <h1 class="mb-5">Add New User</h1>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingUsername" [(ngModel)]="dto.UserName" name="UserName" placeholder="Username">
+        <label for="floatingUsername">Username</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword2" [(ngModel)]="dto.Password" name="Password" placeholder="Password">
+        <label for="floatingPassword2">Password</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingEmail" [(ngModel)]="dto.Email" name="Email" placeholder="Email">
+        <label for="floatingEmail">Email</label>
+      </div>
+      <button class="btn btn-primary mt-3 w-25" (click)=" AddUser()">Add User</button>
+    </div>
+    @if(show == true){
+    <div class="alert alert-success mt-3" role="alert">
+      <h4>Succssed</h4>
+    </div>
+    }
+  </div>
+</div>

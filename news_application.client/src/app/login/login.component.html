@@ -1,0 +1,20 @@
+<div class="container w-50 mt-5">
+  <h1 class="mb-5">Login</h1>
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" [(ngModel)]="logdto.UserName" name="UserName" placeholder="Username">
+        <label for="floatingInput">Username</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" [(ngModel)]="logdto.Password" name="Password" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+      <h5 class="mt-3">If You Are Not Have Account Please Register From <a routerLink="/Register">Here</a></h5>
+      <button class="btn btn-primary mt-3 w-25" (click)="Login()">Login</button>
+    </div>
+    <div class="col-12">
+      <p class="mt-3 text-danger display-6">{{result}}</p>
+    </div>
+  </div>
+</div>

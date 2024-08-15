@@ -1,0 +1,1 @@
+E:\News_Application\news_application.client\obj\Debug\news_application.client.esproj.CoreCompileInputs.cache
